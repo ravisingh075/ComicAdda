@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Book Reading Website</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script>
+  $(document).ready(function(){
+   var currentChapter = 1;
+   $("#chapter").load("chapter1.html"); // Load the first chapter by default
+
+   $("#nextBtn").click(function(){
+    if(currentChapter < 5){ // Check if there are more chapters
+     currentChapter++;
+     $("#chapter").load("chapter"+currentChapter+".html"); // Load the next chapter
+    }
+   });
+
+   $("#prevBtn").click(function(){
+    if(currentChapter > 1){ // Check if there are previous chapters
+     currentChapter--;
+     $("#chapter").load("chapter"+currentChapter+".html"); // Load the previous chapter
+    }
+   });
+  });
+ </script>
+</head>
+<body>
+ <h1>Book Reading Website</h1>
+ <div id="chapter"></div>
+ <button id="prevBtn">Previous Chapter</button>
+ <button id="nextBtn">Next Chapter</button>
+</body>
+</html>
